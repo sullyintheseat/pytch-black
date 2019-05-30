@@ -17,8 +17,14 @@ export default {
     }
   },
   mounted () {
-    if (this.$route.params.id) {
-      this.setRootIdentity(this.$route.params.id)
+    if (this.rootIdentity !== false) {
+      this.$router.push({name: 'Lander'})
+    } else {
+      if (this.$route.params.id) {
+        this.setRootIdentity(this.$route.params.id)
+      } else {
+        this.$router.push({name: 'Selection'})
+      }
     }
   },
   methods: {
