@@ -1,18 +1,22 @@
 <template>
   <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
+    <header-view></header-view>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
       <router-view></router-view>
     </main>
+    <footer-view></footer-view>
   </div>
 </template>
 
 <script>
+import Header from '@/components/common/Header'
+import Footer from '@/components/common/Footer'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    'header-view': Header,
+    'footer-view': Footer
+  }
 }
 </script>
 
@@ -37,7 +41,7 @@ header {
   margin: 0;
   height: 56px;
   padding: 0 16px 0 24px;
-  background-color: #35495E;
+  background-color: #000;
   color: #ffffff;
 }
 
@@ -50,5 +54,15 @@ header span {
   font-weight: 400;
   box-sizing: border-box;
   padding-top: 16px;
+}
+
+footer {
+  height: 56px;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  z-index: 10000;
 }
 </style>
