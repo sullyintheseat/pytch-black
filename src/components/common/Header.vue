@@ -1,6 +1,6 @@
 <template>
   <header>
-    Application Header
+    <img src="../../assets/logo.png" alt="pytch black"/>
   </header>
 </template>
 
@@ -11,5 +11,13 @@ export default {
 </script>
 
 <style>
+header {
+  top: 0;
+  margin: 0;
+  color: #393939;
+}
 
+header img {
+  width: 100%;
+}
 </style>

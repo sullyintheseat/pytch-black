@@ -1,7 +1,13 @@
 import { storage } from '@/utils/storage'
 
 const state = {
-  rootIdentity: null
+  rootIdentity: null,
+  navItems: [
+    {image: 'option1_btn@2x.gif', title: 'Offers', target: '/option1'},
+    {image: 'option2_btn@2x.gif', title: 'Schedule', target: '/option2'},
+    {image: 'option3_btn@2x.gif', title: 'Roster', target: '/option3'},
+    {image: 'option4_btn@2x.gif', title: 'Shop', target: '/option4'}
+  ]
 }
 
 const mutations = {
@@ -17,6 +23,9 @@ const getters = {
     } else {
       return state.rootIdentity
     }
+  },
+  navItems (state) {
+    return state.navItems
   }
 }
 

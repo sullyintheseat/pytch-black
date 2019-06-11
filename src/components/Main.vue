@@ -1,24 +1,29 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>{{rootIdentity}}</p>
-    <p>Consider a loading screen, here we will look to see if a user has been supplied and make a decision based on that,
-       if user, move to user path, if none exists, head to user selection</p>
+  <div class="menu">
+    <div style="width: 98%; margin-left: 2%; height:100%;" v-for="item in navItems" v-bind:key="item._id">
+      <div style="width:50%; float:left;">
+        <menu-tile v-bind:item="item"></menu-tile>
+      </div>
+    </div>
+    <div style="height: 350px; padding-bottom:360px;"><br/><br/></div>
   </div>
 </template>
 
 <script>
+import Tile from '@/components/common/Tile'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'main-view',
+  components: {
+    'menu-tile': Tile
+  },
   data () {
     return {
-      msg: 'Pytch Black Demo'
     }
   },
   mounted () {
     if (this.rootIdentity !== false) {
-      this.$router.push({name: 'Lander'})
+      // this.$router.push({name: 'Lander'})
     } else {
       if (this.$route.params.id) {
         this.setRootIdentity(this.$route.params.id)
@@ -34,7 +39,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'rootIdentity'
+      'rootIdentity',
+      'navItems'
     ])
   }
 }
@@ -58,5 +64,11 @@ li {
 
 a {
   color: #35495E;
+}
+
+.menu {
+  min-height:360px;
+  width: 100%;
+  text-align: center;
 }
 </style>
