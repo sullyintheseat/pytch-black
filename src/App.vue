@@ -6,7 +6,6 @@
     <main>
       <router-view></router-view>
     </main>
-    <button @click="popNotify" class="btn btn-danger">pop</button>
     <footer-view></footer-view>
   </div>
 </template>
@@ -15,8 +14,8 @@
 import Header from '@/components/common/Header'
 import Footer from '@/components/common/Footer'
 import Notification from '@/components/common/Notification'
-import { mapGetters, mapMutations } from 'vuex'
-
+import { mapGetters, mapMutations, mapActions } from 'vuex'
+import {storage} from '@/utils/storage.js'
 export default {
   name: 'app',
   components: {
@@ -25,21 +24,76 @@ export default {
     'footer-view': Footer
   },
   methods: {
-    popNotify () {
-      if (!this.notifyState) {
-        this.setNotifyState(true)
-      } else {
-        console.log('no')
-      }
-    },
     ...mapMutations([
       'setNotifyState',
+    ]),
+    ...mapActions([
+      'setRootIdentity'
     ])
   },
   computed: {
     ...mapGetters([
-      'notifyState'
+      'notifyState',
+      'appId'
     ])
+  },
+  sockets: {
+    connect () {
+      this.isConnected = true
+      console.log('server connected')
+    },
+
+    disconnect () {
+      this.isConnected = false
+      console.log('server disconnected')
+    },
+
+    chat (data) {
+      this.socketMessage = data
+    },
+
+    updateApp (data) {
+      console.log(data)
+      try {
+        if (data !== null) {
+          this.setNotifyState(true)
+          this.promo = JSON.parse(data)
+        } else {
+          this.setNotification(false)
+          if (this.showPrize) {
+            this.setPrizeState(false)
+          }
+          this.promo = null
+        }
+      } catch (e) {
+        this.setNotification(false)
+        this.promo = null
+      }
+    },
+
+    userSigned (data) {
+      if (data.username != null) {
+        console.log(data)
+        let usern = data.username.split('-')
+        console.log(usern[1])
+        this.setRootIdentity(usern[1])
+        storage.storeValue('user', usern[1])
+      }
+    },
+
+    userJoined (data) {
+      console.log(data)
+    },
+
+    testCall (data) {
+      if (data != null) {
+        this.setPrize(JSON.parse(data))
+        console.log(this.prize)
+      } else {
+        this.setPrize(false)
+        this.prize = null
+      }
+    }
   }
 }
 </script>

@@ -1,6 +1,7 @@
 import { storage } from '@/utils/storage'
 
 const state = {
+  appId: 'pytchblack',
   rootIdentity: null,
   navItems: [
     {image: 'PB_btn_green_platform.png', title: 'Sponsors', target: '/option1'},
@@ -26,6 +27,9 @@ const getters = {
   },
   navItems (state) {
     return state.navItems
+  },
+  appId (state) {
+    return state.appId
   }
 }
 

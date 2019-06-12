@@ -37,12 +37,14 @@ export default {
       }
       if (!p && i) {
         console.log(`welcome back ${this.rootIdentity}`)
+        this.$socket.emit('addUser', this.appId + '-' + this.rootIdentity)
       }
       if (p && i) {
         if (me === this.rootIdentity) {
-          console.log(`welcome back ${this.rootIdentity}`)
+          this.$socket.emit('addUser', this.appId + '-' + this.rootIdentity)
         } else {
           console.log(`welcome new user ${me}`)
+          this.$socket.emit('addUser', this.appId + '-' +  this.me)
           this.setRootIdentity(me)
         }
       }
@@ -72,7 +74,8 @@ export default {
   computed: {
     ...mapGetters([
       'rootIdentity',
-      'navItems'
+      'navItems',
+      'appId'
     ])
   }
 }

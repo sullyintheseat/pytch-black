@@ -10,10 +10,10 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-// import VueSocketio from 'vue-socket.io-extended'
-// import io from 'socket.io-client'
+import VueSocketio from 'vue-socket.io-extended'
+import io from 'socket.io-client'
 
-// Vue.use(VueSocketio, io(process.env.SOCKET_SERVER))
+Vue.use(VueSocketio, io(process.env.SOCKET_SERVER))
 Vue.use(Vuex)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
