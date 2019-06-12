@@ -3,10 +3,10 @@ import { storage } from '@/utils/storage'
 const state = {
   rootIdentity: null,
   navItems: [
-    {image: 'option1_btn@2x.gif', title: 'Offers', target: '/option1'},
-    {image: 'option2_btn@2x.gif', title: 'Schedule', target: '/option2'},
-    {image: 'option3_btn@2x.gif', title: 'Roster', target: '/option3'},
-    {image: 'option4_btn@2x.gif', title: 'Shop', target: '/option4'}
+    {image: 'PB_btn_green_platform.png', title: 'Sponsors', target: '/option1'},
+    {image: 'PB_btn_green_data.png', title: 'Sched', target: '/option2'},
+    {image: 'PB_btn_green_connected.png', title: 'Team', target: '/option3'},
+    {image: 'PB_btn_green_loyalty.png', title: 'Shop', target: '/option4'}
   ]
 }
 

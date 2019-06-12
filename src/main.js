@@ -5,15 +5,17 @@ import Vuex from 'vuex'
 import App from '@/App'
 import router from '@/router'
 import store from '@/store'
+import BootstrapVue from 'bootstrap-vue'
 
-import VueQriously from 'vue-qriously'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // import VueSocketio from 'vue-socket.io-extended'
 // import io from 'socket.io-client'
 
 // Vue.use(VueSocketio, io(process.env.SOCKET_SERVER))
 Vue.use(Vuex)
-Vue.use(VueQriously)
+Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

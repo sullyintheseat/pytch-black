@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img src="../../assets/logo.png" alt="pytch black"/>
+    <img src="https://s3.us-east-2.amazonaws.com/ds-stadium-bucket/pytchblack/PB_green_header.gif" alt="pytch black"/>
   </header>
 </template>
 

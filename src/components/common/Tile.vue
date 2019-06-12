@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     myimage: function () {
-      return require(`../../assets/${this.item.image}`)
+      return `https://ds-stadium-bucket.s3.us-east-2.amazonaws.com/pytchblack/${this.item.image}`
     },
     mylink: function () {
       return this.item.target
@@ -46,6 +46,7 @@ export default {
   padding-left: 1%;
   margin: 0%;
   height: 100%;
+  margin-bottom: 6%;
 }
 
 .tile-container {

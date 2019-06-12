@@ -19,9 +19,35 @@ export default {
   },
   data () {
     return {
+      seat: null
     }
   },
   mounted () {
+    let me = this.$route.params.id;
+
+    let p = Boolean(me)
+    let i = Boolean(this.rootIdentity)
+    
+    if (!p && !i) {
+      console.log('anonymous user')
+    } else {
+      if (p && !i) {
+        console.log('new user')
+        this.setRootIdentity(me)
+      }
+      if (!p && i) {
+        console.log(`welcome back ${this.rootIdentity}`)
+      }
+      if (p && i) {
+        if (me === this.rootIdentity) {
+          console.log(`welcome back ${this.rootIdentity}`)
+        } else {
+          console.log(`welcome new user ${me}`)
+          this.setRootIdentity(me)
+        }
+      }
+    }
+    /*
     if (this.rootIdentity !== false) {
       // this.$router.push({name: 'Lander'})
     } else {
@@ -31,11 +57,17 @@ export default {
         this.$router.push({name: 'Selection'})
       }
     }
+    */
   },
   methods: {
     ...mapActions([
       'setRootIdentity'
     ])
+  },
+  sockets: {
+    addUser (data) {
+      this.socketMessage = data
+    }
   },
   computed: {
     ...mapGetters([
