@@ -29,37 +29,26 @@ export default {
     let i = Boolean(this.rootIdentity)
     
     if (!p && !i) {
-      console.log('anonymous user')
+      // anonymous user
     } else {
       if (p && !i) {
-        console.log('new user')
+        // new user
         this.setRootIdentity(me)
       }
       if (!p && i) {
-        console.log(`welcome back ${this.rootIdentity}`)
+        // returning user
         this.$socket.emit('addUser', this.appId + '-' + this.rootIdentity)
       }
       if (p && i) {
         if (me === this.rootIdentity) {
           this.$socket.emit('addUser', this.appId + '-' + this.rootIdentity)
         } else {
-          console.log(`welcome new user ${me}`)
+          // new user replacing old user
           this.$socket.emit('addUser', this.appId + '-' +  this.me)
           this.setRootIdentity(me)
         }
       }
     }
-    /*
-    if (this.rootIdentity !== false) {
-      // this.$router.push({name: 'Lander'})
-    } else {
-      if (this.$route.params.id) {
-        this.setRootIdentity(this.$route.params.id)
-      } else {
-        this.$router.push({name: 'Selection'})
-      }
-    }
-    */
   },
   methods: {
     ...mapActions([

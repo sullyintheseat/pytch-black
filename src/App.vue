@@ -23,6 +23,20 @@ export default {
     'header-view': Header,
     'footer-view': Footer
   },
+  mounted () {
+    if(this.$route.name === 'Main') {
+    } else {
+      let i = Boolean(this.rootIdentity)
+      if (!i) {
+        console.log('anonymous user')
+      } else {
+        if (i) {
+          this.$socket.emit('addUser', this.appId + '-' + this.rootIdentity)
+          this.setRootIdentity(this.rootIdentity)
+        }
+      }
+    }
+  },
   methods: {
     ...mapMutations([
       'setNotifyState',
@@ -77,7 +91,7 @@ export default {
         let usern = data.username.split('-')
         console.log(usern[1])
         this.setRootIdentity(usern[1])
-        storage.storeValue('user', usern[1])
+        storage.storeValue('rootIdentity', usern[1])
       }
     },
 
