@@ -5,7 +5,6 @@
         <menu-tile v-bind:item="item"></menu-tile>
       </div>
     </div>
-    <div style="height: 350px; padding-bottom:360px;"><br/><br/></div>
   </div>
 </template>
 
@@ -72,16 +71,6 @@ export default {
 <style>
 h1, h2 {
   font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
 }
 
 a {

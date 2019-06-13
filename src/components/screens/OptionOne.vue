@@ -1,7 +1,8 @@
 <template>
   <div class="option">
+    <h2>Our Platform</h2> 
     <div class="option-container">
-      <p>I am content and that's cool.</p>
+      <p>The PytchBlack sponsor engagement platform is a completely new way for sponsors to engage sports and music fans. With our platform we allow fans to gain access to real-time content and offers while also allowing sponsors the ability to engage with fans on a 1-to-1 basis. By simply scanning their Digital Seat tag, fans are taken to a in-venue fan engagement portal where they will be able to view information from their favorite artist or team. No app to download. Content can be delivered down to the individual seat level.</p>
     </div>
   </div>
 </template>
@@ -13,18 +14,7 @@ export default {
 </script>
 
 <style>
-.option{
-  width: 100%;
-  padding: 1.2%;
-  min-height:380px;
-  display:-moz-box;
-}
-
-.option-container {
-  padding:0% 1%;
-  text-align: left;
-  padding: 0px 8px;
-  width: 100%;
-  border: solid 10px rgba(255,255,255,.46);
+h2 { 
+  font-weight: bold;
 }
 </style>

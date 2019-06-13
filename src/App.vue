@@ -115,18 +115,19 @@ export default {
 </script>
 
 <style>
-html { height:100%; width:100%; }
+html { height:100%; width:100%; font-family: 'Barlow', sans-serif;}
+h1, h2, h3, h4 { font-family: 'Barlow', sans-serif; font-weight: bold; }
 
 body {
   margin: 0;
   height:100%; width:100%;
-  font-size: 1em;
+  font-size: .9em;
   line-height: 1;
-  font-weight: 300;
+  font-weight: bold;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Barlow', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
@@ -134,6 +135,7 @@ body {
 
 main {
   text-align: center;
+  padding-bottom: 64px;
 }
 
 p {
@@ -153,6 +155,26 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+
+.option{
+  width: 100%;
+  padding: 5%;
+  min-height:380px;
+  display:-moz-box;
+  text-align: left;
+}
+
+.option-container {
+  text-align: left;
+  padding: 8px 16px;
+  width: 100%;
+  border: solid 8px rgba(255,255,255,.46);
+}
+
+.option ul {
+  padding-left: 24px;
 }
 
 footer {
