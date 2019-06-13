@@ -11,7 +11,7 @@ import OptionFour from '@/components/screens/OptionFour'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',

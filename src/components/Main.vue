@@ -24,10 +24,8 @@ export default {
   },
   mounted () {
     let me = this.$route.params.id;
-
     let p = Boolean(me)
     let i = Boolean(this.rootIdentity)
-    
     if (!p && !i) {
       // anonymous user
     } else {
