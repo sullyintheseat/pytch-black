@@ -1,6 +1,8 @@
 <template>
-  <div>
-    I am option 2
+  <div class="option">
+    <div class="option-container">
+      <p>I am content for option 2 and that's cool.</p>
+    </div>
   </div>
 </template>
 

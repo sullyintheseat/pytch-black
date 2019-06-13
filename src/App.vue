@@ -24,9 +24,10 @@ export default {
     'footer-view': Footer
   },
   mounted () {
+    let i = Boolean(this.rootIdentity)
     if(this.$route.name === 'Main') {
+      console.log('in main')
     } else {
-      let i = Boolean(this.rootIdentity)
       if (!i) {
         console.log('anonymous user')
       } else {
@@ -48,6 +49,7 @@ export default {
   computed: {
     ...mapGetters([
       'notifyState',
+      'rootIdentity',
       'appId'
     ])
   },
@@ -118,19 +120,25 @@ html { height:100%; width:100%; }
 body {
   margin: 0;
   height:100%; width:100%;
+  font-size: 1em;
+  line-height: 1;
+  font-weight: 300;
 }
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #fff;
 }
 
 main {
   text-align: center;
 }
 
+p {
+  margin-top: 8px;
+}
 #back {
   z-index:-1;
   background-color: #f00;
